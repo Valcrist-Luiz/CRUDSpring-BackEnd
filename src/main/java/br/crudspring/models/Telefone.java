@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "telefone")
-public class Telefone implements Serializable {
+public class Telefone  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

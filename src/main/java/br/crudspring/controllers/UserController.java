@@ -14,7 +14,6 @@ import java.util.Collection;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
 public class UserController {
 
     private UserRepository userRepository;
@@ -24,12 +23,12 @@ public class UserController {
     }
 
 
-    @GetMapping("/usuarios")
+    @GetMapping("/")
     Collection<User> usuarios() {
         return userRepository.findAll();
     }
 
-    @GetMapping("/usuarios/{id}")
+    @GetMapping("/usuario/{id}")
     ResponseEntity<?> getUser(@PathVariable Long id) {
         Optional<User> user = userRepository.findById(id);
         return user.map(response -> ResponseEntity.ok()
@@ -41,10 +40,10 @@ public class UserController {
     ResponseEntity<User> createUser(@RequestBody User user) throws URISyntaxException {
 
         User result = userRepository.save(user);
-        return ResponseEntity.created(new URI("/api/novo" + result.getId())).body(result);
+        return ResponseEntity.created(new URI("/novo" + result.getId())).body(result);
     }
 
-    @PutMapping("/atualizar/{id}")
+    @PutMapping("/alterar/{id}")
     ResponseEntity<User> updateUser(@Valid @RequestBody User category){
         User result= userRepository.save(category);
         return ResponseEntity.ok().body(result);
