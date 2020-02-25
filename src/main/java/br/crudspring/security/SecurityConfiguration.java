@@ -27,7 +27,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                .antMatchers("/deletar").hasRole("ADMIN")
                .antMatchers("/novo").hasRole("ADMIN")
                .antMatchers("/alterar").hasRole("ADMIN")
-               .antMatchers("/").permitAll()
+               .antMatchers("/all").permitAll()
                .and().httpBasic();
     }
 

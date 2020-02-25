@@ -23,7 +23,7 @@ public class UserController {
     }
 
 
-    @GetMapping("/")
+    @GetMapping("/all")
     Collection<User> usuarios() {
         return userRepository.findAll();
     }
