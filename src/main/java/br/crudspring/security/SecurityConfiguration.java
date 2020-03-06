@@ -24,10 +24,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
        http.authorizeRequests()
-               .antMatchers("/deletar").hasRole("ADMIN")
-               .antMatchers("/novo").hasRole("ADMIN")
-               .antMatchers("/alterar").hasRole("ADMIN")
-               .antMatchers("/all").permitAll()
+
+               .antMatchers("/api/novo").hasRole("ADMIN")
+               .antMatchers("/api/alterar/{id}").hasRole("ADMIN")
+               .antMatchers("/api/usuario/{id}").hasRole("ADMIN")
+               .antMatchers("/api/deletar/{id}").hasRole("ADMIN")
+               .antMatchers("/api/all").permitAll()
                .and().httpBasic();
     }
 

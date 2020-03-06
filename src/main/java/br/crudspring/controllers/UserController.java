@@ -14,6 +14,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/api")
 public class UserController {
 
     private UserRepository userRepository;
